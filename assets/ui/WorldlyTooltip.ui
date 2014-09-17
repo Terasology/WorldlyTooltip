@@ -1,0 +1,39 @@
+{
+    "type": "WorldlyTooltip",
+    "skin": "HUD",
+    "contents": {
+        "type": "relativeLayout",
+        "contents": [
+            {
+                "type" : "UIBox",
+                "id": "tooltipContainer",
+                "content": {
+                        "type": "columnLayout",
+                        "contents": [
+                            {
+                                "type": "UILabel",
+                                "id": "blockName"
+                            },
+                            {
+                                "type": "UILabel",
+                                "id": "blockUri"
+                            }
+                        ],
+                        "layoutInfo": {
+                                "use-content-width": true,
+                                "use-content-height": true,
+                                "position-horizontal-center": {},
+                                "position-top": {}
+                            }
+                },
+                "layoutInfo": {
+                        "use-content-width": true,
+                        "use-content-height": true,
+                        "position-horizontal-center": {},
+                        "position-top": {}
+                    }
+            }
+
+        ]
+    }
+}
