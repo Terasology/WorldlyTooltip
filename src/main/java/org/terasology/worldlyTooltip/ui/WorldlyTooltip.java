@@ -51,9 +51,13 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
         blockName.bindText(new ReadOnlyBinding<String>() {
             @Override
             public String get() {
-                Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
-                Block block = worldProvider.getBlock(blockPosition);
-                return block.getDisplayName();
+                if (cameraTargetSystem.isTargetAvailable()) {
+                    Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
+                    Block block = worldProvider.getBlock(blockPosition);
+                    return block.getDisplayName();
+                } else {
+                    return "";
+                }
             }
         });
 
@@ -61,9 +65,13 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
         blockUri.bindText(new ReadOnlyBinding<String>() {
             @Override
             public String get() {
-                Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
-                Block block = worldProvider.getBlock(blockPosition);
-                return block.getURI().toString();
+                if (cameraTargetSystem.isTargetAvailable()) {
+                    Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
+                    Block block = worldProvider.getBlock(blockPosition);
+                    return block.getURI().toString();
+                } else {
+                    return "";
+                }
             }
         });
     }
