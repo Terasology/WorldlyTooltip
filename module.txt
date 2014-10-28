@@ -3,7 +3,6 @@
     "version" : "0.1.0",
     "author" : "Josharias",
     "displayName" : "Worldly Tooltip",
-    "description" : "Shows what you are looking at",
-    "dependencies" : [],
-    "isServerSideOnly" : false
+    "description" : "Shows what you are looking at (alt for debug info)",
+    "dependencies" : []
 }
