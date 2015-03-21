@@ -20,7 +20,7 @@ import org.terasology.asset.Assets;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.input.Keyboard;
 import org.terasology.input.cameraTarget.CameraTargetSystem;
-import org.terasology.math.Vector3i;
+import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.rendering.assets.mesh.Mesh;
 import org.terasology.rendering.nui.ControlWidget;
