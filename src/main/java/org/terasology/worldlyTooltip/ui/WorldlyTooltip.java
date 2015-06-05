@@ -84,7 +84,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
         tooltip = find("tooltip", UIList.class);
         if (tooltip != null) {
-            UISkin defaultSkin = Assets.getSkin("Engine:itemTooltip");
+            UISkin defaultSkin = Assets.getSkin("Engine:itemTooltip").get();
             tooltip.setItemRenderer(new TooltipLineRenderer(defaultSkin));
             tooltip.setSkin(defaultSkin);
             tooltip.bindList(
@@ -119,7 +119,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
                 }
             });
-            icon.setMeshTexture(Assets.getTexture("engine:terrain"));
+            icon.setMeshTexture(Assets.getTexture("engine:terrain").get());
         }
     }
 }
