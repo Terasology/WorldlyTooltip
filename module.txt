@@ -1,6 +1,6 @@
 {
     "id" : "WorldlyTooltip",
-    "version" : "0.1.0",
+    "version" : "0.1.1-SNAPSHOT",
     "author" : "Josharias",
     "displayName" : "Worldly Tooltip",
     "description" : "Shows what you are looking at (alt for debug info)",
