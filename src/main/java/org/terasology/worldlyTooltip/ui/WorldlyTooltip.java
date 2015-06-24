@@ -20,6 +20,7 @@ import org.terasology.asset.Assets;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.input.Keyboard;
 import org.terasology.input.cameraTarget.CameraTargetSystem;
+import org.terasology.logic.common.DisplayNameComponent;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.rendering.assets.mesh.Mesh;
@@ -74,7 +75,13 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                     if (Keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT) || Keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT)) {
                         return block.getURI().toString();
                     } else {
-                        return block.getDisplayName();
+                        EntityRef blockEntity = blockEntityRegistry.getBlockEntityAt(blockPosition);
+                        DisplayNameComponent displayNameComponent = blockEntity.getComponent(DisplayNameComponent.class);
+                        if (displayNameComponent != null) {
+                            return displayNameComponent.name;
+                        } else {
+                            return block.getDisplayName();
+                        }
                     }
                 } else {
                     return "";
