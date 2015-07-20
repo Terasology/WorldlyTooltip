@@ -24,7 +24,6 @@ import org.terasology.input.cameraTarget.CameraTargetSystem;
 import org.terasology.input.device.KeyboardDevice;
 import org.terasology.logic.common.DisplayNameComponent;
 import org.terasology.math.geom.Vector3i;
-import org.terasology.registry.CoreRegistry;
 import org.terasology.registry.In;
 import org.terasology.rendering.assets.mesh.Mesh;
 import org.terasology.rendering.nui.ControlWidget;
@@ -45,9 +44,6 @@ import org.terasology.world.block.Block;
 import java.util.List;
 
 public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
-    private CameraTargetSystem cameraTargetSystem;
-    private WorldProvider worldProvider;
-    private BlockEntityRegistry blockEntityRegistry;
     private UIBox tooltipContainer;
     private UILabel blockName;
     private UILabel blockUri;
@@ -55,13 +51,19 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
     private ItemIcon icon;
 
     @In
+    private CameraTargetSystem cameraTargetSystem;
+
+    @In
+    private WorldProvider worldProvider;
+
+    @In
+    private BlockEntityRegistry blockEntityRegistry;
+
+    @In
     private InputSystem inputSystem;
 
     @Override
     protected void initialise() {
-        cameraTargetSystem = CoreRegistry.get(CameraTargetSystem.class);
-        worldProvider = CoreRegistry.get(WorldProvider.class);
-        blockEntityRegistry = CoreRegistry.get(BlockEntityRegistry.class);
         final KeyboardDevice keyboard = inputSystem.getKeyboard();
 
         this.bindVisible(new ReadOnlyBinding<Boolean>() {
