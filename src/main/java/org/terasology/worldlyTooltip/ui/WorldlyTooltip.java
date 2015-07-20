@@ -16,7 +16,7 @@
 package org.terasology.worldlyTooltip.ui;
 
 import com.google.common.collect.Lists;
-import org.terasology.asset.Assets;
+import org.terasology.assets.management.AssetManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.input.InputSystem;
 import org.terasology.input.Keyboard;
@@ -26,6 +26,7 @@ import org.terasology.logic.common.DisplayNameComponent;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.In;
 import org.terasology.rendering.assets.mesh.Mesh;
+import org.terasology.rendering.assets.texture.Texture;
 import org.terasology.rendering.nui.ControlWidget;
 import org.terasology.rendering.nui.databinding.ReadOnlyBinding;
 import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
@@ -61,6 +62,9 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
     @In
     private InputSystem inputSystem;
+
+    @In
+    private AssetManager assetManager;
 
     @Override
     protected void initialise() {
@@ -99,7 +103,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
         tooltip = find("tooltip", UIList.class);
         if (tooltip != null) {
-            UISkin defaultSkin = Assets.getSkin("Engine:itemTooltip").get();
+            UISkin defaultSkin = assetManager.getAsset("Engine:itemTooltip", UISkin.class).get();
             tooltip.setItemRenderer(new TooltipLineRenderer(defaultSkin));
             tooltip.setSkin(defaultSkin);
             tooltip.bindList(
@@ -134,7 +138,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
                 }
             });
-            icon.setMeshTexture(Assets.getTexture("engine:terrain").get());
+            icon.setMeshTexture(assetManager.getAsset("engine:terrain", Texture.class).get());
         }
     }
 }
