@@ -18,11 +18,14 @@ package org.terasology.worldlyTooltip.ui;
 import com.google.common.collect.Lists;
 import org.terasology.asset.Assets;
 import org.terasology.entitySystem.entity.EntityRef;
+import org.terasology.input.InputSystem;
 import org.terasology.input.Keyboard;
 import org.terasology.input.cameraTarget.CameraTargetSystem;
+import org.terasology.input.device.KeyboardDevice;
 import org.terasology.logic.common.DisplayNameComponent;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.registry.CoreRegistry;
+import org.terasology.registry.In;
 import org.terasology.rendering.assets.mesh.Mesh;
 import org.terasology.rendering.nui.ControlWidget;
 import org.terasology.rendering.nui.databinding.ReadOnlyBinding;
@@ -42,7 +45,6 @@ import org.terasology.world.block.Block;
 import java.util.List;
 
 public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
-
     private CameraTargetSystem cameraTargetSystem;
     private WorldProvider worldProvider;
     private BlockEntityRegistry blockEntityRegistry;
@@ -52,11 +54,15 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
     private UIList<TooltipLine> tooltip;
     private ItemIcon icon;
 
+    @In
+    private InputSystem inputSystem;
+
     @Override
     protected void initialise() {
         cameraTargetSystem = CoreRegistry.get(CameraTargetSystem.class);
         worldProvider = CoreRegistry.get(WorldProvider.class);
         blockEntityRegistry = CoreRegistry.get(BlockEntityRegistry.class);
+        final KeyboardDevice keyboard = inputSystem.getKeyboard();
 
         this.bindVisible(new ReadOnlyBinding<Boolean>() {
             @Override
@@ -72,7 +78,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                 if (cameraTargetSystem.isTargetAvailable()) {
                     Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                     Block block = worldProvider.getBlock(blockPosition);
-                    if (Keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT) || Keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT)) {
+                    if (keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT) || keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT)) {
                         return block.getURI().toString();
                     } else {
                         EntityRef blockEntity = blockEntityRegistry.getBlockEntityAt(blockPosition);
