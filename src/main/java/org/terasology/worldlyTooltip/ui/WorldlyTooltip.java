@@ -114,8 +114,12 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                                 EntityRef targetEntity = blockEntityRegistry.getEntityAt(cameraTargetSystem.getTargetBlockPosition());
 
                                 GetItemTooltip itemTooltip = new GetItemTooltip();
-                                targetEntity.send(itemTooltip);
-                                return itemTooltip.getTooltipLines();
+                                try {
+                                    targetEntity.send(itemTooltip);
+                                    return itemTooltip.getTooltipLines();
+                                } catch (Exception ex) {
+                                    return Lists.newArrayList(new TooltipLine("Error"));
+                                }
                             }
                             return Lists.newArrayList();
                         }
