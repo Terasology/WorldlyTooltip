@@ -4,5 +4,10 @@
     "author" : "Josharias",
     "displayName" : "Worldly Tooltip",
     "description" : "Shows what you are looking at (alt for debug info)",
-    "dependencies" : []
+    "dependencies" : [
+        {
+            "id" : "Core",
+            "minVersion" : "1.0.0"
+        }
+    ]
 }
