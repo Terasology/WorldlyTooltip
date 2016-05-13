@@ -67,7 +67,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
     private AssetManager assetManager;
 
     @Override
-    protected void initialise() {
+    public void initialise() {
         final KeyboardDevice keyboard = inputSystem.getKeyboard();
 
         this.bindVisible(new ReadOnlyBinding<Boolean>() {
