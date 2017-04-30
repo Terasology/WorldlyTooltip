@@ -38,16 +38,16 @@ import org.terasology.rendering.nui.widgets.TooltipLineRenderer;
 import org.terasology.rendering.nui.widgets.UIBox;
 import org.terasology.rendering.nui.widgets.UILabel;
 import org.terasology.rendering.nui.widgets.UIList;
+import org.terasology.utilities.Assets;
 import org.terasology.world.BlockEntityRegistry;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
+import org.terasology.worldlyTooltip.GetTooltipIconEvent;
 
 import java.util.List;
 
 public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
-    private UIBox tooltipContainer;
     private UILabel blockName;
-    private UILabel blockUri;
     private UIList<TooltipLine> tooltip;
     private ItemIcon icon;
 
@@ -136,12 +136,14 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
             icon.bindMesh(new ReadOnlyBinding<Mesh>() {
                 @Override
                 public Mesh get() {
-
                     if (!cameraTargetSystem.isBlock()) {
+//                        EntityRef targetEntity = cameraTargetSystem.getTarget();
+//                        GetTooltipIconEvent getTooltipIconEvent = new GetTooltipIconEvent();
+//                        targetEntity.send(getTooltipIconEvent);
+                        icon.setIcon(Assets.getTextureRegion("WildAnimals:deerIcon").get());
                         return null;
-                    }
-
-                    if (cameraTargetSystem.isTargetAvailable()) {
+                    } else if (cameraTargetSystem.isTargetAvailable()) {
+                        icon.setIcon(null);
                         Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                         Block block = worldProvider.getBlock(blockPosition);
                         if (block.getBlockFamily() != null) {
@@ -149,7 +151,6 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                         }
                     }
                     return null;
-
                 }
             });
             icon.setMeshTexture(assetManager.getAsset("engine:terrain", Texture.class).get());
