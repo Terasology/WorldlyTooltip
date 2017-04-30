@@ -81,6 +81,12 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
         blockName.bindText(new ReadOnlyBinding<String>() {
             @Override
             public String get() {
+
+                if (!cameraTargetSystem.isBlock()) {
+                    EntityRef targetEntity = cameraTargetSystem.getTarget();
+                    return targetEntity.getParentPrefab().getName();
+                }
+
                 if (cameraTargetSystem.isTargetAvailable()) {
                     Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                     Block block = worldProvider.getBlock(blockPosition);
@@ -111,8 +117,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                         @Override
                         public List<TooltipLine> get() {
                             if (cameraTargetSystem.isTargetAvailable()) {
-                                EntityRef targetEntity = blockEntityRegistry.getEntityAt(cameraTargetSystem.getTargetBlockPosition());
-
+                                EntityRef targetEntity = cameraTargetSystem.getTarget();
                                 GetItemTooltip itemTooltip = new GetItemTooltip();
                                 try {
                                     targetEntity.send(itemTooltip);
@@ -131,6 +136,11 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
             icon.bindMesh(new ReadOnlyBinding<Mesh>() {
                 @Override
                 public Mesh get() {
+
+                    if (!cameraTargetSystem.isBlock()) {
+                        return null;
+                    }
+
                     if (cameraTargetSystem.isTargetAvailable()) {
                         Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                         Block block = worldProvider.getBlock(blockPosition);

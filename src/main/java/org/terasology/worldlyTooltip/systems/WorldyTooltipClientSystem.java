@@ -20,6 +20,7 @@ import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
+import org.terasology.logic.common.DisplayNameComponent;
 import org.terasology.logic.health.HealthComponent;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
@@ -40,4 +41,10 @@ public class WorldyTooltipClientSystem extends BaseComponentSystem {
     public void getDurabilityItemTooltip(GetItemTooltip event, EntityRef entity, HealthComponent healthComponent) {
         event.getTooltipLines().add(new TooltipLine("Health: " + healthComponent.currentHealth + "/" + healthComponent.maxHealth));
     }
+
+    @ReceiveEvent
+    public void getDisplayNameEntityTooltip(GetItemTooltip event, EntityRef entity, DisplayNameComponent displayNameComponent) {
+        event.getTooltipLines().add(new TooltipLine("Name: " + displayNameComponent.name));
+    }
+
 }
