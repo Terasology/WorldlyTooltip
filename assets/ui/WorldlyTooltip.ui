@@ -2,76 +2,58 @@
   "type": "WorldlyTooltip",
   "skin": "HUD",
   "contents": {
-    "type": "relativeLayout",
-    "contents": [
-      {
-        "type": "UIBox",
-        "layoutInfo": {
-          "position-top": {
-            "target": "TOP",
-            "widget": "icon",
-            "offset": -3
-          },
-          "position-left": {
-            "target": "LEFT",
-            "widget": "icon",
-            "offset": -6
-          },
-          "position-right": {
-            "target": "RIGHT",
-            "widget": "tooltipContainer",
-            "offset": -6
-          },
-          "position-bottom": {
-            "target": "BOTTOM",
-            "widget": "tooltipContainer",
-            "offset": -3
+    "type": "UIBox",
+    "layoutInfo": {
+      "use-content-width": true,
+      "use-content-height": true
+    },
+    "contents": {
+      "type": "relativeLayout",
+      "contents": [
+        {
+          "type": "ItemIcon",
+          "id": "icon",
+          "layoutInfo": {
+            "width": 50,
+            "height": 50,
+            "position-horizontal-center": {},
+            "position-top": {
+              "offset": 3
+            }
+          }
+        },
+        {
+          "type": "columnLayout",
+          "id": "tooltipContainer",
+          "fillVerticalSpace": false,
+          "contents": [
+            {
+              "type": "UILabel",
+              "id": "blockName"
+            },
+            {
+              "type": "UIList",
+              "id": "tooltip"
+            }
+          ],
+          "layoutInfo": {
+            "use-content-width": true,
+            "use-content-height": true,
+            "min-height": 50,
+            "position-horizontal-left": {},
+            "position-top": {
+              "target": "TOP",
+              "widget": "icon",
+              "offset": 3
+            },
+            "position-left": {
+              "target": "RIGHT",
+              "widget": "icon",
+              "offset": 3
+            }
           }
         }
-      },
-      {
-        "type": "ItemIcon",
-        "id": "icon",
-        "layoutInfo": {
-          "width": 50,
-          "height": 50,
-          "position-horizontal-center": {},
-          "position-top": {
-            "offset": 3
-          }
-        }
-      },
-      {
-        "type": "columnLayout",
-        "id": "tooltipContainer",
-        "fillVerticalSpace": false,
-        "contents": [
-          {
-            "type": "UILabel",
-            "id": "blockName"
-          },
-          {
-            "type": "UIList",
-            "id": "tooltip"
-          }
-        ],
-        "layoutInfo": {
-          "use-content-width": true,
-          "use-content-height": true,
-          "min-height": 50,
-          "position-horizontal-left": {},
-          "position-top": {
-            "target": "TOP",
-            "widget": "icon",
-            "offset": 3
-          },
-          "position-left": {
-            "target": "RIGHT",
-            "widget": "icon",
-            "offset": 3
-          }
-        }
-      }
-    ]
+      ]
+    }
   }
 }
