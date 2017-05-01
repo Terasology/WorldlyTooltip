@@ -26,14 +26,20 @@
                 {
                   "type": "ItemIcon",
                   "id": "icon",
-                  "icon": "WildAnimals:deerIcon"
+                  "icon": "WildAnimals:deerIcon",
+                  "layoutInfo": {
+                    "height": 50,
+                    "width": 50
+                  }
                 },
                 {
                   "type": "columnLayout",
                   "id": "tooltipContainer",
                   "columns": 1,
                   "autoSizeColumns": true,
-                  "layoutInfo": {},
+                  "layoutInfo": {
+                    "min-height": 50
+                  },
                   "contents": [
                     {
                       "type": "UILabel",
