@@ -26,7 +26,6 @@ import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
 import org.terasology.rendering.nui.widgets.TooltipLine;
-import org.terasology.worldlyTooltip.GetTooltipIconEvent;
 
 @RegisterSystem(RegisterMode.CLIENT)
 public class WorldyTooltipClientSystem extends BaseComponentSystem {
@@ -47,6 +46,5 @@ public class WorldyTooltipClientSystem extends BaseComponentSystem {
     public void getDisplayNameEntityTooltip(GetItemTooltip event, EntityRef entity, DisplayNameComponent displayNameComponent) {
         event.getTooltipLines().add(new TooltipLine("Name: " + displayNameComponent.name));
     }
-
 
 }
