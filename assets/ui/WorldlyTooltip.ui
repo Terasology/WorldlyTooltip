@@ -13,31 +13,27 @@
         },
         "content": {
           "type": "columnLayout",
+          "columns": 1,
+          "autoSizeColumns": true,
           "layoutInfo": {
-            "use-content-height": true,
-            "use-content-width": true
+            "use-content-height": true
           },
           "contents": [
             {
               "type": "rowLayout",
               "id": "newWidget",
-              "layoutInfo": {},
               "contents": [
                 {
                   "type": "ItemIcon",
                   "id": "icon",
-                  "icon": "WildAnimals:deerIcon",
-                  "layoutInfo": {
-                    "height": 50,
-                    "relativeWidth": 0.16
-                  }
+                  "icon": "WildAnimals:deerIcon"
                 },
                 {
                   "type": "columnLayout",
                   "id": "tooltipContainer",
-                  "layoutInfo": {
-                    "use-content-height": true
-                  },
+                  "columns": 1,
+                  "autoSizeColumns": true,
+                  "layoutInfo": {},
                   "contents": [
                     {
                       "type": "UILabel",
@@ -52,8 +48,7 @@
                 }
               ]
             }
-          ],
-          "columns": 1
+          ]
         }
       }
     ]
