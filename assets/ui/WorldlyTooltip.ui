@@ -2,58 +2,60 @@
   "type": "WorldlyTooltip",
   "skin": "HUD",
   "contents": {
-    "type": "UIBox",
-    "layoutInfo": {
-      "use-content-width": true,
-      "use-content-height": true
-    },
-    "contents": {
-      "type": "relativeLayout",
-      "contents": [
-        {
-          "type": "ItemIcon",
-          "id": "icon",
-          "layoutInfo": {
-            "width": 50,
-            "height": 50,
-            "position-horizontal-center": {},
-            "position-top": {
-              "offset": 3
-            }
-          }
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "position-horizontal-center": {},
+          "use-content-height": true,
+          "width": 300
         },
-        {
+        "content": {
           "type": "columnLayout",
-          "id": "tooltipContainer",
-          "fillVerticalSpace": false,
+          "layoutInfo": {
+            "use-content-height": true,
+            "use-content-width": true
+          },
           "contents": [
             {
-              "type": "UILabel",
-              "id": "blockName"
-            },
-            {
-              "type": "UIList",
-              "id": "tooltip"
+              "type": "rowLayout",
+              "id": "newWidget",
+              "layoutInfo": {},
+              "contents": [
+                {
+                  "type": "ItemIcon",
+                  "id": "icon",
+                  "icon": "WildAnimals:deerIcon",
+                  "layoutInfo": {
+                    "height": 50,
+                    "relativeWidth": 0.16
+                  }
+                },
+                {
+                  "type": "columnLayout",
+                  "id": "tooltipContainer",
+                  "layoutInfo": {
+                    "use-content-height": true
+                  },
+                  "contents": [
+                    {
+                      "type": "UILabel",
+                      "id": "blockName",
+                      "text": "WildAnimals:deer"
+                    },
+                    {
+                      "type": "UIList",
+                      "id": "tooltip"
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "layoutInfo": {
-            "use-content-width": true,
-            "use-content-height": true,
-            "min-height": 50,
-            "position-horizontal-left": {},
-            "position-top": {
-              "target": "TOP",
-              "widget": "icon",
-              "offset": 3
-            },
-            "position-left": {
-              "target": "RIGHT",
-              "widget": "icon",
-              "offset": 3
-            }
-          }
+          "columns": 1
         }
-      ]
-    }
+      }
+    ]
   }
 }
