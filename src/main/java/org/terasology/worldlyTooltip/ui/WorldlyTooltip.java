@@ -34,8 +34,6 @@ import org.terasology.rendering.nui.ControlWidget;
 import org.terasology.rendering.nui.databinding.ReadOnlyBinding;
 import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
-import org.terasology.rendering.nui.layers.ingame.inventory.GetTooltipIconEvent;
-import org.terasology.rendering.nui.layers.ingame.inventory.GetTooltipNameEvent;
 import org.terasology.rendering.nui.layers.ingame.inventory.ItemIcon;
 import org.terasology.rendering.nui.skin.UISkin;
 import org.terasology.rendering.nui.widgets.TooltipLine;
@@ -45,6 +43,8 @@ import org.terasology.rendering.nui.widgets.UIList;
 import org.terasology.world.BlockEntityRegistry;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
+import org.terasology.worldlyTooltip.events.GetTooltipIconEvent;
+import org.terasology.worldlyTooltip.events.GetTooltipNameEvent;
 
 import java.util.List;
 

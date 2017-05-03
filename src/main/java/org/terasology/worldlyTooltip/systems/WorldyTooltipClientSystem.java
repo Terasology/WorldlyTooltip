@@ -15,7 +15,6 @@
  */
 package org.terasology.worldlyTooltip.systems;
 
-import org.omg.CosNaming.NameComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.terasology.entitySystem.entity.EntityRef;
@@ -23,17 +22,13 @@ import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.logic.common.DisplayNameComponent;
 import org.terasology.logic.health.HealthComponent;
 import org.terasology.logic.nameTags.NameTagComponent;
-import org.terasology.logic.players.PlayerUtil;
-import org.terasology.network.ClientComponent;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
-import org.terasology.rendering.nui.layers.ingame.inventory.GetTooltipNameEvent;
+import org.terasology.worldlyTooltip.events.GetTooltipNameEvent;
 import org.terasology.rendering.nui.widgets.TooltipLine;
-import org.terasology.worldlyTooltip.ui.WorldlyTooltip;
 
 @RegisterSystem(RegisterMode.CLIENT)
 public class WorldyTooltipClientSystem extends BaseComponentSystem {
