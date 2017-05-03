@@ -41,12 +41,10 @@ import org.terasology.rendering.nui.widgets.TooltipLine;
 import org.terasology.rendering.nui.widgets.TooltipLineRenderer;
 import org.terasology.rendering.nui.widgets.UILabel;
 import org.terasology.rendering.nui.widgets.UIList;
-import org.terasology.utilities.Assets;
 import org.terasology.world.BlockEntityRegistry;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 
-import javax.swing.*;
 import java.util.List;
 
 public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
