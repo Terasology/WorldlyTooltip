@@ -35,6 +35,7 @@ import org.terasology.rendering.nui.databinding.ReadOnlyBinding;
 import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetTooltipIconEvent;
+import org.terasology.rendering.nui.layers.ingame.inventory.GetTooltipNameEvent;
 import org.terasology.rendering.nui.layers.ingame.inventory.ItemIcon;
 import org.terasology.rendering.nui.skin.UISkin;
 import org.terasology.rendering.nui.widgets.TooltipLine;
@@ -48,7 +49,7 @@ import org.terasology.world.block.Block;
 import java.util.List;
 
 public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
-    private UILabel blockName;
+    private UILabel name;
     private UIList<TooltipLine> tooltip;
     private ItemIcon icon;
 
@@ -79,15 +80,17 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
             }
         });
 
-        blockName = find("blockName", UILabel.class);
-        blockName.bindText(new ReadOnlyBinding<String>() {
+        name = find("name", UILabel.class);
+        name.bindText(new ReadOnlyBinding<String>() {
             @Override
             public String get() {
                 if (cameraTargetSystem.isTargetAvailable()) {
 
                     if (!cameraTargetSystem.isBlock()) {
                         EntityRef targetEntity = cameraTargetSystem.getTarget();
-                        return targetEntity.getParentPrefab().getName();
+                        GetTooltipNameEvent getTooltipNameEvent = new GetTooltipNameEvent();
+                        targetEntity.send(getTooltipNameEvent);
+                        return getTooltipNameEvent.getName();
                     }
 
                     Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();

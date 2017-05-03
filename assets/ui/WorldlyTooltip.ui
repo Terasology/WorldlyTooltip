@@ -26,7 +26,6 @@
                 {
                   "type": "ItemIcon",
                   "id": "icon",
-                  "icon": "WildAnimals:deerIcon",
                   "layoutInfo": {
                     "height": 50,
                     "width": 50
@@ -43,8 +42,7 @@
                   "contents": [
                     {
                       "type": "UILabel",
-                      "id": "blockName",
-                      "text": "WildAnimals:deer"
+                      "id": "name"
                     },
                     {
                       "type": "UIList",
