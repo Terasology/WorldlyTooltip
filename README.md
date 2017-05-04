@@ -2,4 +2,14 @@ WorldlyTooltip
 ==============
 
 Shows what you are looking at
-![](/images/sample.png)
+
+Works with:
+
+### Blocks
+![](/images/blocktooltip.png)
+
+### Player Entities
+![](/images/playertooltip.png)
+
+### WildAnimals (optional dependency)
+![](/images/deertooltip.png)

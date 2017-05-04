@@ -1,51 +1,60 @@
 {
-    "type": "WorldlyTooltip",
-    "skin": "HUD",
-    "contents": {
-        "type": "relativeLayout",
-        "contents": [
+  "type": "WorldlyTooltip",
+  "skin": "HUD",
+  "contents": {
+    "type": "relativeLayout",
+    "contents": [
+      {
+        "type": "UIBox",
+        "layoutInfo": {
+          "position-horizontal-center": {},
+          "use-content-height": true,
+          "width": 300
+        },
+        "content": {
+          "type": "columnLayout",
+          "columns": 1,
+          "autoSizeColumns": true,
+          "layoutInfo": {
+            "use-content-height": true
+          },
+          "contents": [
             {
-                "type": "ItemIcon",
-                "id": "icon",
-                "layoutInfo": {
-                    "width": 50,
+              "type": "rowLayout",
+              "id": "newWidget",
+              "contents": [
+                {
+                  "type": "ItemIcon",
+                  "id": "icon",
+                  "layoutInfo": {
                     "height": 50,
-                    "position-horizontal-center": {},
-                    "position-top": {
-                        "offset": 3
-                    }
-                }
-            },
-            {
-                "type": "columnLayout",
-                "id": "tooltipContainer",
-                "fillVerticalSpace": false,
-                "contents": [
-                        {
-                            "type": "UILabel",
-                            "id": "blockName"
-                        },
-                        {
-                            "type": "UIList",
-                            "id": "tooltip"
-                        }
-                ],
-                "layoutInfo": {
-                    "use-content-width": true,
-                    "use-content-height": true,
-                    "position-horizontal-left": {},
-                    "position-top" : {
-                        "target" : "TOP",
-                        "widget" : "icon",
-                        "offset" : 3
+                    "width": 50
+                  }
+                },
+                {
+                  "type": "columnLayout",
+                  "id": "tooltipContainer",
+                  "columns": 1,
+                  "autoSizeColumns": true,
+                  "layoutInfo": {
+                    "min-height": 50
+                  },
+                  "contents": [
+                    {
+                      "type": "UILabel",
+                      "id": "name"
                     },
-                    "position-left" : {
-                        "target" : "RIGHT",
-                        "widget" : "icon",
-                        "offset": 3
+                    {
+                      "type": "UIList",
+                      "id": "tooltip"
                     }
+                  ]
                 }
+              ]
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }

@@ -15,15 +15,19 @@
  */
 package org.terasology.worldlyTooltip.systems;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.logic.health.HealthComponent;
+import org.terasology.logic.nameTags.NameTagComponent;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
+import org.terasology.worldlyTooltip.events.GetTooltipNameEvent;
 import org.terasology.rendering.nui.widgets.TooltipLine;
 
 @RegisterSystem(RegisterMode.CLIENT)
@@ -31,13 +35,27 @@ public class WorldyTooltipClientSystem extends BaseComponentSystem {
     @In
     private NUIManager nuiManager;
 
+    private static final Logger logger = LoggerFactory.getLogger(WorldyTooltipClientSystem.class);
+
     @Override
     public void preBegin() {
         nuiManager.getHUD().addHUDElement("WorldlyTooltip:WorldlyTooltip");
     }
 
+    /*
+     * Sets the Name at the top of the WorldlyTooltip to show the player's name
+     */
     @ReceiveEvent
-    public void getDurabilityItemTooltip(GetItemTooltip event, EntityRef entity, HealthComponent healthComponent) {
+    public void getTooltipName(GetTooltipNameEvent event, EntityRef entity, NameTagComponent nameTagComponent) {
+        event.setName(nameTagComponent.text);
+    }
+
+    /*
+     * Adds Health inside the WorldlyTooltip to show health of any entity having a HealthComponent
+     */
+    @ReceiveEvent
+    public void addHealthToTooltip(GetItemTooltip event, EntityRef entity, HealthComponent healthComponent) {
         event.getTooltipLines().add(new TooltipLine("Health: " + healthComponent.currentHealth + "/" + healthComponent.maxHealth));
     }
+
 }
