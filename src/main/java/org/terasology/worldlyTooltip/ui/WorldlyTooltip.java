@@ -43,8 +43,8 @@ import org.terasology.rendering.nui.widgets.UIList;
 import org.terasology.world.BlockEntityRegistry;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
-import org.terasology.worldlyTooltip.events.GetTooltipIconEvent;
-import org.terasology.worldlyTooltip.events.GetTooltipNameEvent;
+import org.terasology.worldlyTooltipAPI.events.GetTooltipIconEvent;
+import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 
 import java.util.List;
 

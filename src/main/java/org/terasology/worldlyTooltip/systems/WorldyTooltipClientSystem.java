@@ -27,7 +27,7 @@ import org.terasology.logic.nameTags.NameTagComponent;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
-import org.terasology.worldlyTooltip.events.GetTooltipNameEvent;
+import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 import org.terasology.rendering.nui.widgets.TooltipLine;
 
 @RegisterSystem(RegisterMode.CLIENT)
