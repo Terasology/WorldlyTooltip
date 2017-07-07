@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 MovingBlocks
+ * Copyright 2017 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
  */
 package org.terasology.worldlyTooltip.systems;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
@@ -27,15 +25,13 @@ import org.terasology.logic.nameTags.NameTagComponent;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
-import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 import org.terasology.rendering.nui.widgets.TooltipLine;
+import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 
 @RegisterSystem(RegisterMode.CLIENT)
 public class WorldyTooltipClientSystem extends BaseComponentSystem {
     @In
     private NUIManager nuiManager;
-
-    private static final Logger logger = LoggerFactory.getLogger(WorldyTooltipClientSystem.class);
 
     @Override
     public void preBegin() {

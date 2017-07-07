@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 MovingBlocks
+ * Copyright 2017 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,6 @@
 package org.terasology.worldlyTooltip.ui;
 
 import com.google.common.collect.Lists;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.terasology.assets.management.AssetManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.input.InputSystem;
@@ -52,8 +50,6 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
     private UILabel name;
     private UIList<TooltipLine> tooltip;
     private ItemIcon icon;
-
-    private static final Logger logger = LoggerFactory.getLogger(WorldlyTooltip.class);
     @In
     private CameraTargetSystem cameraTargetSystem;
 
@@ -95,7 +91,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
                     Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                     Block block = worldProvider.getBlock(blockPosition);
-                    if (keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT) || keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT)) {
+                    if (keyboard.isKeyDown(Keyboard.KeyId.LEFT_ALT) || keyboard.isKeyDown(Keyboard.KeyId.RIGHT_ALT)) {
                         return block.getURI().toString();
                     } else {
                         EntityRef blockEntity = blockEntityRegistry.getBlockEntityAt(blockPosition);
