@@ -1,9 +1,9 @@
-WorldlyTooltip
-==============
+# WorldlyTooltip
 
 Shows what you are looking at.
 
-This module works with [WorldlyTooltipAPI](https://github.com/Terasology/WorldlyTooltipAPI), that contains the events GetTooltipIconEvent and GetTooltipNameEvent. The WorldlyTooltipAPI module needs to be added as a dependency by all modules that want to use the WorldlyTooltip feature.
+This module works with [WorldlyTooltipAPI](https://github.com/Terasology/WorldlyTooltipAPI), that contains the events `GetTooltipIconEvent` and `GetTooltipNameEvent`.
+The WorldlyTooltipAPI module needs to be added as a dependency by all modules that want to use the WorldlyTooltip feature.
 
 Works with:
 

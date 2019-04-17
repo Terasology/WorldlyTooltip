@@ -110,7 +110,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
 
         tooltip = find("tooltip", UIList.class);
         if (tooltip != null) {
-            UISkin defaultSkin = assetManager.getAsset("core:itemTooltip", UISkin.class).get();
+            UISkin defaultSkin = assetManager.getAsset("inventory:itemTooltip", UISkin.class).get();
             tooltip.setItemRenderer(new TooltipLineRenderer(defaultSkin));
             tooltip.setSkin(defaultSkin);
             tooltip.bindList(
