@@ -1,10 +1,11 @@
 {
     "id" : "WorldlyTooltip",
-    "version" : "1.1.1-SNAPSHOT",
+    "version" : "1.2.0",
     "author" : "Josharias, nihal111",
     "displayName" : "Worldly Tooltip",
     "description" : "Shows what you are looking at (alt for debug info)",
     "dependencies" : [
         {"id" : "WorldlyTooltipAPI", "minVersion" : "0.1.0"}
-    ]
+    ],
+    "isAugmentation" : true
 }
