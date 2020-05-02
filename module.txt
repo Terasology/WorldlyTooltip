@@ -5,7 +5,6 @@
     "displayName" : "Worldly Tooltip",
     "description" : "Shows what you are looking at (alt for debug info)",
     "dependencies" : [
-        {"id" : "Core", "minVersion" : "3.0.0"},
         {"id" : "WorldlyTooltipAPI", "minVersion" : "0.1.0"}
     ]
 }
