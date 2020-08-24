@@ -22,10 +22,10 @@ import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.logic.health.HealthComponent;
 import org.terasology.logic.nameTags.NameTagComponent;
+import org.terasology.nui.widgets.TooltipLine;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
 import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
-import org.terasology.rendering.nui.widgets.TooltipLine;
 import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 
 @RegisterSystem(RegisterMode.CLIENT)
