@@ -1,46 +1,33 @@
-/*
- * Copyright 2017 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.worldlyTooltip.ui;
 
 import com.google.common.collect.Lists;
-import org.terasology.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.input.InputSystem;
+import org.terasology.engine.input.cameraTarget.CameraTargetSystem;
+import org.terasology.engine.logic.common.DisplayNameComponent;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.assets.mesh.Mesh;
+import org.terasology.engine.rendering.assets.texture.Texture;
+import org.terasology.engine.rendering.assets.texture.TextureRegion;
+import org.terasology.engine.rendering.nui.layers.hud.CoreHudWidget;
+import org.terasology.engine.world.BlockEntityRegistry;
+import org.terasology.engine.world.WorldProvider;
+import org.terasology.engine.world.block.Block;
 import org.terasology.gestalt.assets.management.AssetManager;
-import org.terasology.input.InputSystem;
-import org.terasology.input.Keyboard;
-import org.terasology.input.cameraTarget.CameraTargetSystem;
-import org.terasology.input.device.KeyboardDevice;
-import org.terasology.logic.common.DisplayNameComponent;
+import org.terasology.inventory.rendering.nui.layers.ingame.GetItemTooltip;
+import org.terasology.inventory.rendering.nui.layers.ingame.ItemIcon;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.nui.ControlWidget;
 import org.terasology.nui.databinding.ReadOnlyBinding;
+import org.terasology.nui.input.Keyboard;
+import org.terasology.nui.input.device.KeyboardDevice;
 import org.terasology.nui.skin.UISkin;
 import org.terasology.nui.widgets.TooltipLine;
 import org.terasology.nui.widgets.TooltipLineRenderer;
 import org.terasology.nui.widgets.UILabel;
 import org.terasology.nui.widgets.UIList;
-import org.terasology.registry.In;
-import org.terasology.rendering.assets.mesh.Mesh;
-import org.terasology.rendering.assets.texture.Texture;
-import org.terasology.rendering.assets.texture.TextureRegion;
-import org.terasology.rendering.nui.layers.hud.CoreHudWidget;
-import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
-import org.terasology.rendering.nui.layers.ingame.inventory.ItemIcon;
-import org.terasology.world.BlockEntityRegistry;
-import org.terasology.world.WorldProvider;
-import org.terasology.world.block.Block;
 import org.terasology.worldlyTooltipAPI.events.GetTooltipIconEvent;
 import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 
@@ -95,7 +82,8 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                         return block.getURI().toString();
                     } else {
                         EntityRef blockEntity = blockEntityRegistry.getBlockEntityAt(blockPosition);
-                        DisplayNameComponent displayNameComponent = blockEntity.getComponent(DisplayNameComponent.class);
+                        DisplayNameComponent displayNameComponent =
+                                blockEntity.getComponent(DisplayNameComponent.class);
                         if (displayNameComponent != null) {
                             return displayNameComponent.name;
                         } else {
