@@ -16,7 +16,6 @@
 package org.terasology.worldlyTooltip.ui;
 
 import com.google.common.collect.Lists;
-import org.joml.Vector3i;
 import org.terasology.assets.management.AssetManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.input.InputSystem;
@@ -24,6 +23,7 @@ import org.terasology.input.Keyboard;
 import org.terasology.input.cameraTarget.CameraTargetSystem;
 import org.terasology.input.device.KeyboardDevice;
 import org.terasology.logic.common.DisplayNameComponent;
+import org.terasology.math.geom.Vector3i;
 import org.terasology.nui.ControlWidget;
 import org.terasology.nui.databinding.ReadOnlyBinding;
 import org.terasology.nui.skin.UISkin;
