@@ -76,6 +76,19 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
             }
         });
 
+        initialiseName(keyboard);
+        initialiseTooltip();
+        initialiseIcon();
+    }
+
+    /**
+     * Initialise the label for the name of the targeted entity.
+     *
+     * If the user presses the ALT key the technical URI will be displayed for blocks instead of the display name.
+     *
+     * @param keyboard the keyboard device to adjust the shown label on user input
+     */
+    private void initialiseName(KeyboardDevice keyboard) {
         name = find("name", UILabel.class);
         name.bindText(new ReadOnlyBinding<String>() {
             @Override
@@ -95,7 +108,8 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                         return block.getURI().toString();
                     } else {
                         EntityRef blockEntity = blockEntityRegistry.getBlockEntityAt(blockPosition);
-                        DisplayNameComponent displayNameComponent = blockEntity.getComponent(DisplayNameComponent.class);
+                        DisplayNameComponent displayNameComponent =
+                                blockEntity.getComponent(DisplayNameComponent.class);
                         if (displayNameComponent != null) {
                             return displayNameComponent.name;
                         } else {
@@ -107,7 +121,12 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                 }
             }
         });
+    }
 
+    /**
+     * Initialise the bindings for the tooltip lines.
+     */
+    private void initialiseTooltip() {
         tooltip = find("tooltip", UIList.class);
         if (tooltip != null) {
             UISkin defaultSkin = assetManager.getAsset("inventory:itemTooltip", UISkin.class).get();
@@ -131,7 +150,12 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                         }
                     });
         }
+    }
 
+    /**
+     * Initialise the bindings for the tooltip icon.
+     */
+    private void initialiseIcon() {
         icon = find("icon", ItemIcon.class);
         if (icon != null) {
             icon.bindIcon(new ReadOnlyBinding<TextureRegion>() {
@@ -143,8 +167,6 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                             GetTooltipIconEvent getTooltipIconEvent = new GetTooltipIconEvent();
                             targetEntity.send(getTooltipIconEvent);
                             return getTooltipIconEvent.getIcon();
-                        } else {
-                            return null;
                         }
                     }
                     return null;
@@ -154,16 +176,13 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                 @Override
                 public Mesh get() {
                     if (cameraTargetSystem.isTargetAvailable()) {
-                        if (!cameraTargetSystem.isBlock()) {
-                            return null;
-                        } else {
+                        if (cameraTargetSystem.isBlock()) {
                             Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                             Block block = worldProvider.getBlock(blockPosition);
                             if (block.getBlockFamily() != null) {
                                 return block.getBlockFamily().getArchetypeBlock().getMesh();
                             }
                         }
-                        return null;
                     }
                     return null;
                 }
