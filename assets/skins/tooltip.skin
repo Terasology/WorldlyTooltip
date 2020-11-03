@@ -1,0 +1,8 @@
+{
+  "inherit": "engine:hud",
+  "elements": {
+    "ItemIcon": {
+      "texture-scale-mode": "scale fit"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "type": "WorldlyTooltip",
-  "skin": "HUD",
+  "skin": "WorldlyTooltip:tooltip",
   "contents": {
     "type": "relativeLayout",
     "contents": [
@@ -25,11 +25,7 @@
               "contents": [
                 {
                   "type": "ItemIcon",
-                  "id": "icon",
-                  "layoutInfo": {
-                    "height": 50,
-                    "width": 50
-                  }
+                  "id": "icon"
                 },
                 {
                   "type": "columnLayout",
