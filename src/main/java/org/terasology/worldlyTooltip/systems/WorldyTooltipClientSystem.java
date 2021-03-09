@@ -15,16 +15,16 @@
  */
 package org.terasology.worldlyTooltip.systems;
 
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.entitySystem.event.ReceiveEvent;
-import org.terasology.entitySystem.systems.BaseComponentSystem;
-import org.terasology.entitySystem.systems.RegisterMode;
-import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.logic.health.HealthComponent;
-import org.terasology.logic.nameTags.NameTagComponent;
-import org.terasology.registry.In;
-import org.terasology.rendering.nui.NUIManager;
-import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.event.ReceiveEvent;
+import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
+import org.terasology.engine.entitySystem.systems.RegisterMode;
+import org.terasology.engine.entitySystem.systems.RegisterSystem;
+import org.terasology.engine.logic.health.HealthComponent;
+import org.terasology.engine.logic.nameTags.NameTagComponent;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.rendering.nui.NUIManager;
+import org.terasology.engine.rendering.nui.layers.ingame.inventory.GetItemTooltip;
 import org.terasology.nui.widgets.TooltipLine;
 import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 
