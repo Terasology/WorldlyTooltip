@@ -24,7 +24,7 @@ import org.terasology.logic.health.HealthComponent;
 import org.terasology.engine.logic.nameTags.NameTagComponent;
 import org.terasology.engine.registry.In;
 import org.terasology.engine.rendering.nui.NUIManager;
-import org.terasology.rendering.nui.layers.ingame.inventory.GetItemTooltip;
+import org.terasology.module.inventory.ui.GetItemTooltip;
 import org.terasology.nui.widgets.TooltipLine;
 import org.terasology.worldlyTooltipAPI.events.GetTooltipNameEvent;
 
