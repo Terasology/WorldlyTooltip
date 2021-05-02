@@ -4,7 +4,7 @@ package org.terasology.worldlyTooltip.ui;
 
 import com.google.common.collect.Lists;
 import org.joml.Vector3i;
-import org.terasology.assets.management.AssetManager;
+import org.terasology.gestalt.assets.management.AssetManager;
 import org.terasology.engine.entitySystem.entity.EntityRef;
 import org.terasology.engine.input.InputSystem;
 import org.terasology.engine.input.cameraTarget.CameraTargetSystem;
