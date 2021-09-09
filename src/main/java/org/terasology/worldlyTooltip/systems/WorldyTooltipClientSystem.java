@@ -16,13 +16,13 @@
 package org.terasology.worldlyTooltip.systems;
 
 import org.terasology.engine.entitySystem.entity.EntityRef;
-import org.terasology.engine.entitySystem.event.ReceiveEvent;
 import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
 import org.terasology.engine.entitySystem.systems.RegisterMode;
 import org.terasology.engine.entitySystem.systems.RegisterSystem;
 import org.terasology.engine.logic.nameTags.NameTagComponent;
 import org.terasology.engine.registry.In;
 import org.terasology.engine.rendering.nui.NUIManager;
+import org.terasology.gestalt.entitysystem.event.ReceiveEvent;
 import org.terasology.module.health.components.HealthComponent;
 import org.terasology.module.inventory.ui.GetItemTooltip;
 import org.terasology.nui.widgets.TooltipLine;
