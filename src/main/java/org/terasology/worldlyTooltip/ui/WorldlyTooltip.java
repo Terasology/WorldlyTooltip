@@ -168,7 +168,7 @@ public class WorldlyTooltip extends CoreHudWidget implements ControlWidget {
                             Vector3i blockPosition = cameraTargetSystem.getTargetBlockPosition();
                             Block block = worldProvider.getBlock(blockPosition);
                             if (block.getBlockFamily() != null) {
-                                return block.getBlockFamily().getArchetypeBlock().getMesh();
+                                return block.getBlockFamily().getArchetypeBlock().getMeshGenerator().getStandaloneMesh();
                             }
                         }
                     }
